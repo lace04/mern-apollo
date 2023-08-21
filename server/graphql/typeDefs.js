@@ -3,19 +3,19 @@ import { gql } from 'graphql-tag';
 export const typeDefs = gql`
   type Query {
     hello: String
-    getAllProjects: [Project]
-    getAllTasks: [Task]
-    getProject(_id: ID!): Project
-    getTask(_id: ID!): Task
+    projects: [Project]
+    project(_id: ID!): Project
+    tasks: [Task]
+    task(_id: ID!): Task
   }
 
   type Mutation {
     createProject(name: String, description: String): Project
-    createTask(title: String, projectId: ID): Task
-    deleteProject(_id: ID!): Project
-    deleteTask(_id: ID!): Task
     updateProject(_id: ID!, name: String!, description: String): Project
+    deleteProject(_id: ID!): Project
+    createTask(title: String, projectId: ID): Task
     updateTask(_id: ID!, title: String!, projectId: ID): Task
+    deleteTask(_id: ID!): Task
   }
 
   type Project {

@@ -1,22 +1,20 @@
-import { Schema, model } from 'mongoose';
+import mongoose from 'mongoose';
 
-const TaskSchema = new Schema(
+const taskSchame = new mongoose.Schema(
   {
     title: {
       type: String,
       required: true,
-      trim: true,
     },
     projectId: {
-      type: Schema.Types.ObjectId,
-      required: true,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'Project',
+      required: true,
     },
   },
   {
     timestamps: true,
-    versionKey: false,
   }
 );
 
-export default model('Task', TaskSchema);
+export default mongoose.model('Task', taskSchame);

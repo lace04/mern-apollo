@@ -1,21 +1,16 @@
-import { Schema, model } from 'mongoose';
+import mongoose from 'mongoose';
 
-const ProjectSchema = new Schema(
+const ProjectSchema = new mongoose.Schema(
   {
     name: {
       type: String,
       required: true,
-      trim: true,
     },
     description: {
       type: String,
-      trim: true,
     },
   },
-  {
-    timestamps: true,
-    versionKey: false,
-  }
+  { timestamps: true }
 );
 
-export default model('Project', ProjectSchema);
+export default mongoose.model('Project', ProjectSchema);
