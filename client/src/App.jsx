@@ -13,7 +13,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
-        <main className='m-auto h-screen flex items-center justify-center'>
+        <main className='flex flex-col h-screen'>
           <Routes>
             <Route path='/' element={<Navigate to='/projects' />} />
             <Route path='/projects' element={<Projects />} />

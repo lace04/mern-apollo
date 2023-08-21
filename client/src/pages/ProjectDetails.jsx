@@ -19,17 +19,17 @@ export function ProjectDetails() {
 
   return (
     <div>
-      <div className='bg-zinc-900 mb-8 p-8 flex flex-col justify-between gap-y-2'>
-        <h1 className='text-2xl font-semibold'>
-          Project Details {data.project.name}
-        </h1>
-        <p className='font-semibold'>{data.project.description}</p>
+      <div className='bg-zinc-900 mb-8 p-8 flex flex-col'>
+        <h1 className='text-2xl font-semibold'>Project: {data.project.name}</h1>
+        <p className='font-semibold text-xs mt-2'>Description: {data.project.description}</p>
       </div>
       {/* <button className='bg-blue-500- px-5 py-2 rounded-full my-4 block hover:bg-red-700'>
         Delete
       </button> */}
-      <TaskForm />
-      <TaskList tasks={data.project.tasks} />
+      <article className='flex flex-col w-full md:flex md:flex-row'>
+        <TaskForm />
+        <TaskList tasks={data.project.tasks} />
+      </article>
       <div className='flex items-center justify-center text-2xl mt-10 text-cyan-900 hover:text-teal-800'>
         <Link to='/'>
           <AiOutlineHome />

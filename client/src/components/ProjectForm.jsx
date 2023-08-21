@@ -27,7 +27,7 @@ export function ProjectForm() {
         console.log(data.getProject);
         setproject(data.getProject);
       }
-    }
+    };
   }, []);
 
   const [createProject, { loading, error, data }] = useMutation(
@@ -59,7 +59,10 @@ export function ProjectForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='w-2/5'>
+    <form
+      onSubmit={handleSubmit}
+      className='w-4/5 lg:w-2/5 flex flex-col mx-auto'
+    >
       {error && <p>{error.message}</p>}
 
       <input
@@ -67,19 +70,20 @@ export function ProjectForm() {
         name='name'
         placeholder='Write title'
         onChange={handleChange}
-        className='bg-zinc-600 text-white rounded-lg shadow-lg p-4 block w-full mb-2'
+        className='bg-zinc-600 text-white rounded-sm shadow-lg p-2 block w-full mb-2'
+        autoComplete='off'
       />
       <textarea
         name='description'
         rows='3'
         placeholder='Write description'
         onChange={handleChange}
-        className='bg-zinc-600 text-white rounded-lg shadow-lg p-4 block w-full mb-2'
+        className='bg-zinc-600 text-white rounded-sm shadow-lg p-2 block w-full mb-2'
       ></textarea>
       <button
         type='submit'
         disabled={!project.name || !project.description || loading}
-        className='bg-cyan-600 text-white rounded-lg shadow-lg p-4 block w-full mb-2 font-bold hover:bg-cyan-500 disabled:bg-slate-600'
+        className='bg-cyan-600 text-white rounded-sm shadow-lg p-2 block w-full mb-2 font-bold hover:bg-cyan-500 disabled:bg-slate-600'
       >
         Create Project
       </button>
